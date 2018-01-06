@@ -41,7 +41,7 @@ export default class login extends Component{
                 <View>
                     <Text style={styles.logBtn} onPress={()=>{
                         const { navigate } = this.props.navigation;
-                        navigate('routerConfigs');
+                        navigate('companyCreat');
                     }}> 
                     登录
                     </Text>

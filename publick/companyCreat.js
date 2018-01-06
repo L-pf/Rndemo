@@ -28,6 +28,12 @@ export default class companyCreat extends Component{
     render(){
         return(
             <View style={styles.main}>
+                <Text style={styles.title} onPress={()=>{
+                        const { navigate } = this.props.navigation;
+                        navigate('routerConfigs');
+                    }}>
+                    创建公司页面，点我
+                </Text>
                     
             </View>
         )
@@ -37,6 +43,10 @@ export default class companyCreat extends Component{
 const styles = StyleSheet.create({
     main:{
         flex:1,
-        backgorundColor:'#339eff',
+        backgroundColor:'#339eff',
+    },
+    title:{
+        fontSize:20,
+        textAlign:'center',
     },
 })

@@ -16,6 +16,7 @@ import App from './publick/tabBar'
 import Swiper from './publick/swiper'
 import Mine from './publick/mine'
 import Login from './login/login'
+import CompanyCreat from './publick/companyCreat'
 import TabNavigatorItem from "react-native-tab-navigator/TabNavigatorItem";
 
 
@@ -153,12 +154,9 @@ export default  MyApp = StackNavigator({
       screen:routerConfigs,
   },
   // 将需要跳转的页面注册在这里，全局才可以跳转
-  /* head:{
-      screen:Head
+  companyCreat:{
+      screen:CompanyCreat,
   },
-  App:{
-      screen:App,
-  }, */
 
 },{
 
