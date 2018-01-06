@@ -11,6 +11,7 @@ import {
   StyleSheet
 } from 'react-native';
 
+
 import Head from './publick/head'
 import App from './publick/tabBar'
 import Swiper from './publick/swiper'
@@ -156,6 +157,26 @@ export default  MyApp = StackNavigator({
   // 将需要跳转的页面注册在这里，全局才可以跳转
   companyCreat:{
       screen:CompanyCreat,
+      navigationOptions:(navigator,screenProps) => ({
+        headerTitle:'公司信息',
+        headerTitleStyle:{
+            fontSize:25,
+            color:'#333',
+            alignSelf:'center',
+            fontWeight:'normal',
+        },
+        headerStyle:{
+            elevation: 0,
+            borderBottomWidth:1,
+            borderColor:'#e9eef2',
+            borderStyle:'solid',
+        },
+        headerRight:(
+            
+        ),
+            
+        
+    })
   },
 
 },{

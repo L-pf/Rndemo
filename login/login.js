@@ -39,11 +39,23 @@ export default class login extends Component{
                 <UserTextInput placeholder ={'请输入密码'} secureTextEntry ={true} />
 
                 <View>
+                    <Text style={styles.forgetPass} onPress={()=>{
+                        const { navigate } = this.props.navigation;
+                        navigate('companyCreat');
+                    }}>
+                        忘记密码
+                    </Text>
                     <Text style={styles.logBtn} onPress={()=>{
                         const { navigate } = this.props.navigation;
                         navigate('companyCreat');
                     }}> 
                     登录
+                    </Text>
+                    <Text style={styles.register} onPress={()=>{
+                        const { navigate } = this.props.navigation;
+                        navigate('companyCreat');
+                    }}> 
+                    注册
                     </Text>
                 </View>
                 
@@ -70,15 +82,37 @@ const styles = StyleSheet.create({
     },
     logBtn:{
         fontSize:24,
-        borderRadius:8,
+        borderRadius:30,
         backgroundColor:'#339eff',
         textAlign:'center',
         color:'#ffffff',
         height:60,
         margin:20,
-        marginTop:120,
+        marginTop:80,
         includeFontPadding:false,
         textAlignVertical:'center',
+    },
+    register:{
+        fontSize:24,
+        borderRadius:30,
+        backgroundColor:'#ffffff',
+        textAlign:'center',
+        color:'#339eff',
+        height:60,
+        margin:20,
+        marginTop:60,
+        includeFontPadding:false,
+        textAlignVertical:'center',
+        borderWidth:1,
+        borderColor:'#339eff',
+        borderStyle:'solid',
+    },
+    forgetPass:{
+        fontSize:18,
+        color:'#9ca0ac',
+        textAlign:'right',
+        margin:10,
+        marginRight:20,
     }
 
 })

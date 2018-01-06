@@ -43,7 +43,7 @@ export default class companyCreat extends Component{
 const styles = StyleSheet.create({
     main:{
         flex:1,
-        backgroundColor:'#339eff',
+        backgroundColor:'#fdfeff',
     },
     title:{
         fontSize:20,
