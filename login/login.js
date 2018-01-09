@@ -53,7 +53,7 @@ export default class login extends Component{
                     </Text>
                     <Text style={styles.register} onPress={()=>{
                         const { navigate } = this.props.navigation;
-                        navigate('companyCreat');
+                        navigate('register');
                     }}> 
                     注册
                     </Text>

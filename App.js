@@ -2,15 +2,22 @@
 import {
   StackNavigator,
   TabNavigator,
-  addNavigationHelpers
+  addNavigationHelpers,
+  DrawerNavigator,
+  DrawerItems,
 } from 'react-navigation';
 
 import React, {Component} from 'react'
 import {
-  View,
-  StyleSheet
-} from 'react-native';
+    View,
+    Text,
+    Image,
+    ScrollView,
+    Dimensions,
+    TouchableOpacity,
+    StyleSheet,
 
+} from 'react-native';
 
 import Head from './publick/head'
 import App from './publick/tabBar'
@@ -18,6 +25,7 @@ import Swiper from './publick/swiper'
 import Mine from './publick/mine'
 import Login from './login/login'
 import CompanyCreat from './publick/companyCreat'
+import Register from './login/register'
 import TabNavigatorItem from "react-native-tab-navigator/TabNavigatorItem";
 
 
@@ -171,11 +179,24 @@ export default  MyApp = StackNavigator({
             borderColor:'#e9eef2',
             borderStyle:'solid',
         },
-        headerRight:(
-            
-        ),
-            
-        
+    })
+  },
+  register:{
+      screen:Register,
+      navigationOptions:(navigator,screenProps) => ({
+        headerTitle:'注册',
+        headerTitleStyle:{
+            fontSize:25,
+            color:'#333',
+            alignSelf:'center',
+            fontWeight:'normal',
+        },
+        headerStyle:{
+            elevation: 0,
+            borderBottomWidth:1,
+            borderColor:'#e9eef2',
+            borderStyle:'solid',
+        },
     })
   },
 

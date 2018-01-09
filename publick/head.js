@@ -9,35 +9,41 @@ import {
     StyleSheet,
     Platform,
     ViewPagerAndroid,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView,
+    Dimensions,
+    Button,
 } from 'react-native';
 
 import Swiper from './swiper'
+import {
+    DrawerNavigator,
+    DrawerItems,
+} from 'react-navigation';
 /**
  * rn提供的plateform用于检测app所在的平台
  */
-const instructions = Platform.select({
-    ios : '这个是ios',
-    android : '这个是安卓'
-})
-
-export default class head extends Component{
+class Home extends Component{
     static navigationOptions = ({navigation,screenProps}) => ({
         // 这里面的属性和App.js的navigationOptions是一样的。
         headerTitle:navigation.state.params?navigation.state.params.headerTitle:'Detail1',
-
-    });
-
+        drawerLabel:'我',
+    }); 
 
     render(){
         return (
             <View style={styles.content}>
 
                 <View style={styles.header}>
-
                     <View style={styles.bc} >
-                        <Image style={styles.menu} source={require('../images/menu.png')} />
+                        <TouchableOpacity  onPress={()=>{
+                            this.props.navigation.navigate('DrawerOpen');
+                        }}>
+                             <Image style={styles.menu} source={require('../images/menu.png')} />
+                        </TouchableOpacity>
+                       
                         <Text style={styles.title}>河南众品食业股份有限公司</Text>
+
                     </View>
 
                      <Swiper />
@@ -122,6 +128,36 @@ export default class head extends Component{
         )
     }
 }
+class MyNotificationsScreen extends Component {
+    static navigationOptions = {
+        drawerLabel: 'Notifications标题',
+    };
+
+    render() {
+        return (
+            <Button
+                onPress={() => this.props.navigation.goBack()}
+                title="Go back home"
+            />
+        );
+    }
+}
+let {width,height}  = Dimensions.get('window');
+
+const head = DrawerNavigator({
+        Home:{
+            screen:Home,
+        },
+        Notifications: {
+            screen: MyNotificationsScreen,
+        },
+        Notifications2: {
+            screen: MyNotificationsScreen,
+        },
+    },
+);
+
+
 
 const styles = StyleSheet.create({
     content:{
@@ -134,19 +170,22 @@ const styles = StyleSheet.create({
     },
     bc:{
         height:80,
-        justifyContent:'center',
+        // justifyContent:'center',
     },
     title:{
         fontSize:20,
         textAlign:'center',
         color:'#fff',
+        includeFontPadding:false,
+        textAlignVertical:'center',
     },
     menu:{
         width:30,
         height:30,
-        position:'absolute',
+        // margin:25,
+        /* position:'absolute',
         left:30,
-        top:25,
+        top:25, */
     },
     pushInfo:{
         height:120,
@@ -213,8 +252,22 @@ const styles = StyleSheet.create({
         fontSize:16,
         height:30,
         justifyContent:'center',
-    }
+    },
+
+    tabImg : {
+        alignItems : 'center',
+        justifyContent : 'center',
+    },
+    img : {
+        height : 100,
+    },
+    titleMsg : {
+        textAlign : 'center',
+        color : '#ff3233',
+        paddingTop : 40,
+        paddingBottom : 20,
+    },
 
 })
 
-
+export default head;

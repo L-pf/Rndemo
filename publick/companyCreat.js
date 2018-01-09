@@ -34,6 +34,13 @@ export default class companyCreat extends Component{
                     }}>
                     创建公司页面，点我
                 </Text>
+                <UserTextInput  defaultValue={'名称'} />
+                <UserTextInput defaultValue={'公司地址'} />
+                <UserTextInput defaultValue={'详细地址'} />
+                <UserTextInput defaultValue={'联系人'} />
+                <UserTextInput defaultValue={'联系方式'} />
+                <UserTextInput defaultValue={'邮政编码'} />
+                <UserTextInput defaultValue={'收货地址'} />
                     
             </View>
         )
@@ -48,5 +55,14 @@ const styles = StyleSheet.create({
     title:{
         fontSize:20,
         textAlign:'center',
+    },
+    input:{
+        height:80,
+        fontSize:21,
+        paddingLeft:20,
+        backgroundColor:'#ffffff',
+        borderBottomWidth:1,
+        borderColor:'#e9eef2',
+        borderStyle:'solid',
     },
 })
