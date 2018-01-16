@@ -26,6 +26,7 @@ import Mine from './publick/mine'
 import Login from './login/login'
 import CompanyCreat from './publick/companyCreat'
 import Register from './login/register'
+import Slider from './publick/slider'
 import TabNavigatorItem from "react-native-tab-navigator/TabNavigatorItem";
 
 
@@ -166,22 +167,10 @@ export default  MyApp = StackNavigator({
   companyCreat:{
       screen:CompanyCreat,
       navigationOptions:(navigator,screenProps) => ({
-        headerTitle:'公司信息',
-        headerTitleStyle:{
-            fontSize:25,
-            color:'#333',
-            alignSelf:'center',
-            fontWeight:'normal',
-        },
-        headerStyle:{
-            elevation: 0,
-            borderBottomWidth:1,
-            borderColor:'#e9eef2',
-            borderStyle:'solid',
-        },
+        header:null,
     })
   },
-  register:{
+  register:{//注册
       screen:Register,
       navigationOptions:(navigator,screenProps) => ({
         headerTitle:'注册',
@@ -199,6 +188,24 @@ export default  MyApp = StackNavigator({
         },
     })
   },
+  slider:{//侧滑
+      screen:Slider,
+      navigationOptions:(navigator,screenProps) => ({
+        headerTitle:'侧滑',
+        headerTitleStyle:{
+            fontSize:25,
+            color:'#333',
+            alignSelf:'center',
+            fontWeight:'normal',
+        },
+        headerStyle:{
+            elevation: 0,
+            borderBottomWidth:1,
+            borderColor:'#e9eef2',
+            borderStyle:'solid',
+        },
+    })
+  }
 
 },{
 

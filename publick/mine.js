@@ -10,6 +10,7 @@ import {
     Text,
     Image,
     StyleSheet,
+    TouchableOpacity,
 } from 'react-native';
 
 
@@ -25,9 +26,14 @@ import {
      render(){
         return(
             <View style={styles.content}>
-                <Text style={styles.title}>
-                    我的
-                </Text>
+                <TouchableOpacity onPress={()=>{
+                        const { navigate } = this.props.navigation;
+                        navigate('slider')
+                    }}>
+                    <Text style={styles.title}>
+                        我的
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }

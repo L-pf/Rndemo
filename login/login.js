@@ -24,19 +24,30 @@ class UserTextInput extends Component{
              />
         )
     }
-   
+
 }
 
 export default class login extends Component{
 
+    constructor (props){
+        super(props)
+        this.state = {
+            username:'',
+            password:'',
+        }
+    }
 
     render(){
 
         return(
             <View style={styles.form}>
 
-                <UserTextInput placeholder ={'请输入手机号或自定义账号'}  />
-                <UserTextInput placeholder ={'请输入密码'} secureTextEntry ={true} />
+                <UserTextInput placeholder ={'请输入手机号或自定义账号'} onChangeText ={(name)=>{
+                    this.state.username = name;
+                }}  />
+                <UserTextInput placeholder ={'请输入密码'} secureTextEntry ={true} onChangeText ={(psd)=>{
+                    this.state.password = psd;
+                }} />
 
                 <View>
                     <Text style={styles.forgetPass} onPress={()=>{
