@@ -6,35 +6,13 @@ import {
 export default class NetUtils extends  Component{
 
     static fetch(url, options = {}) {
-        options.headers = Object.assign(options.headers || {}, {
+        let infobody={};
+        infobody.headers = Object.assign(options.headers || {}, {
             "Content-Type": "application/x-www-form-urlencoded"
         });
-    
-        if (options.jsonData/* && typeof(options.data) == 'object'*/) {
-            let params = '';
-    
-            for (let p in options.jsonData) {
-                if(options.jsonData[p] === undefined || options.jsonData[p] === null){
-                    continue ;
-                }
-                params += p + '=' + options.jsonData[p] + '&';
-            }
-    
-            options.method = options.method ? options.method.toUpperCase() : 'GET';
-    
-            if (options.method == 'GET' || options.method == 'HEAD') {
-                if (url.indexOf('?') == -1) {
-                    url += '?' + params;
-                } else {
-                    url += '&' + params;
-                }
-            } else {
-                if (options.body) {
-                    options.body += params;
-                } else {
-                    options.body = params;
-                }
-            }
+        infobody.method = options.method;
+        if (options.jsonData) {
+            infobody.body = 'jsonData='+JSON.stringify(options.jsonData);
         }
     
         /* let _baseUrl;
@@ -45,14 +23,11 @@ export default class NetUtils extends  Component{
         } else {
             _baseUrl = options.baseUrl;
         } */
-    
-        return fetch(/* _baseUrl + */ url, options).then(res => res.json()).then(res => {
-            console.log(res);
-           /*  if (res.code != '200') {
-                return Promise.reject(res);
-            } else { */
-                return Promise.resolve(res.body);
-            // }
+
+        // console.log(infobody)
+        return fetch(/* _baseUrl + */ url, infobody).then(res => res.json()).then(res => {
+            // console.log(res);
+            return Promise.resolve(res);
         }).catch(error => {
             if (error.code == '601') {
                 // 未登录，跳转到登录页面

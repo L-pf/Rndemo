@@ -12,6 +12,7 @@ import {
     TextInput,
     TouchableOpacity,
     Button,
+    Alert,
 } from 'react-native';
 
 import NetUtils from '../publick/NetUtils.js';
@@ -50,8 +51,14 @@ export default class login extends Component{
         }).then(res => {
             console.log(res);
             // 成功
-            const { navigate } = this.props.navigation;
-            navigate('companyCreat');
+            console.log(res.params.returnCode)
+            if(res.params.status==1){
+                const { navigate } = this.props.navigation;
+                navigate('companyCreat');
+            }else{
+                Alert.alert('登录失败');
+            }
+            
         }).catch(error => {
             // 失败
             console.log(error)
