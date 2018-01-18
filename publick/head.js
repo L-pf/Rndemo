@@ -53,7 +53,8 @@ class Home extends Component{
                     <TouchableOpacity  onPress={()=>{
                         const { navigate } = this.props.navigation;
                         navigate('mine',{
-                            headerTitle:'个人中心的页面'
+                            headerTitle:'个人中心的页面',
+                            user:'aaa'
                         })
                     }}>
                         <Image style={styles.pushInfoImg} source={require('../images/menu.png')} />

@@ -14,6 +14,8 @@ import {
     Button,
 } from 'react-native';
 
+import NetUtils from '../publick/NetUtils.js';
+
 class UserTextInput extends Component{
     render(){
          return(
@@ -37,6 +39,26 @@ export default class login extends Component{
         }
     }
 
+    getInfo = ()=>{
+        console.log(this.state.username);
+        NetUtils.fetch('http://t-idaccess.xzjcloud.com/user/pwdLogin', {
+            method: 'POST',
+            jsonData:{
+                mobile:this.state.username,
+                password:this.state.password
+            }
+        })
+        .then(res => {
+            console.log(res);
+            // 成功
+            const { navigate } = this.props.navigation;
+            navigate('companyCreat');
+        }).catch(error => {
+            console.log(error)
+            // 失败
+        });
+    }
+
     render(){
 
         return(
@@ -57,8 +79,9 @@ export default class login extends Component{
                         忘记密码
                     </Text>
                     <Text style={styles.logBtn} onPress={()=>{
-                        const { navigate } = this.props.navigation;
-                        navigate('companyCreat');
+                        /* const { navigate } = this.props.navigation;
+                        navigate('companyCreat'); */
+                        this.getInfo();
                     }}> 
                     登录
                     </Text>
@@ -74,6 +97,7 @@ export default class login extends Component{
             </View>
         );
     }
+
 }
 
 const styles = StyleSheet.create({

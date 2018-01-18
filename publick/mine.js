@@ -19,10 +19,16 @@ import {
     static navigationOptions = ({navigation,screenProps}) => ({
         // 这里面的属性和App.js的navigationOptions是一样的。
         headerTitle:navigation.state.params?navigation.state.params.headerTitle:'Detail1',
-    
+       
     });
 
- 
+    constructor(props){
+        super(props);
+        console.log(this.props.navigation.state.params.user);
+        this.state = {
+            user:this.props.navigation.state.params.user,
+        }
+    }
      render(){
         return(
             <View style={styles.content}>
@@ -31,7 +37,7 @@ import {
                         navigate('slider')
                     }}>
                     <Text style={styles.title}>
-                        我的
+                        {this.props.navigation.state.params.user}
                     </Text>
                 </TouchableOpacity>
             </View>
