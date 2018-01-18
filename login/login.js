@@ -54,8 +54,8 @@ export default class login extends Component{
             const { navigate } = this.props.navigation;
             navigate('companyCreat');
         }).catch(error => {
-            console.log(error)
             // 失败
+            console.log(error)
         });
     }
 
