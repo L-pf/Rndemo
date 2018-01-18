@@ -47,8 +47,7 @@ export default class login extends Component{
                 mobile:this.state.username,
                 password:this.state.password
             }
-        })
-        .then(res => {
+        }).then(res => {
             console.log(res);
             // 成功
             const { navigate } = this.props.navigation;
